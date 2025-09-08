@@ -12,8 +12,8 @@ class TabsView extends GetView<TabsController> {
       return Scaffold(
         body: PageView(
           controller: controller.pageController,
-          children: controller.pages,
           onPageChanged: controller.setCurrentIndex,
+          children: controller.pages,
         ),
 
         bottomNavigationBar: BottomNavigationBar(
