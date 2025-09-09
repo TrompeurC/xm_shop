@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
         children: [
           Positioned(
             left: 0,
-            top: -ScreenAdapter.statusBarHeight() - ScreenAdapter.height(50),
+            top: -ScreenAdapter.statusBarHeight(),
             right: 0,
             bottom: 0,
             child: HomeList(),
