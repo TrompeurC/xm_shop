@@ -13,6 +13,7 @@ class TabsView extends GetView<TabsController> {
         body: PageView(
           controller: controller.pageController,
           onPageChanged: controller.setCurrentIndex,
+          physics: const NeverScrollableScrollPhysics(),
           children: controller.pages,
         ),
 

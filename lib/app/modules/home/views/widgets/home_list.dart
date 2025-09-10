@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xm_shop/app/modules/home/controllers/home_controller.dart';
+import 'package:xm_shop/app/modules/home/views/widgets/home_banner.dart';
 import 'package:xm_shop/app/modules/home/views/widgets/home_category.dart';
+import 'package:xm_shop/app/modules/home/views/widgets/home_hot.dart';
+import 'package:xm_shop/app/modules/home/views/widgets/home_waterfall.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 
@@ -51,6 +54,10 @@ class HomeList extends GetView<HomeController> {
         Obx(() => _buildSwiper()),
         _buildBanner(),
         HomeCategory(),
+        HomeBanner(),
+        HomeHot(),
+        HomeWaterfall(),
+        SizedBox(height: 20,)
       ],
     );
   }

@@ -50,7 +50,7 @@ class HomeAppBar extends GetView<HomeController> {
                       SizedBox(width: 4),
                       Text(
                         '请搜索',
-                        style: TextStyle(color: Colors.grey[400], fontSize: 18),
+                        style: TextStyle(color: Colors.grey[400], fontSize: 16),
                       ),
                     ],
                   ),
