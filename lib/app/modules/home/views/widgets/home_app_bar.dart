@@ -35,7 +35,7 @@ class HomeAppBar extends GetView<HomeController> {
                 ? ScreenAdapter.width(620)
                 : ScreenAdapter.width(800),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(230, 252, 243, 236),
+              color: const Color.fromRGBO(246, 246, 246, 1),
               borderRadius: const BorderRadiusGeometry.all(Radius.circular(30)),
               // border: BoxBorder.all(color: color, width: 1),
             ),
