@@ -1,15 +1,15 @@
-class CategoryModel {
-  List<CategoryItemModel>? result;
+class ReclassifyModel {
+  List<ReclassifyItemModel>? result;
 
-  CategoryModel({
+  ReclassifyModel({
     this.result,
   });
 
-  CategoryModel.fromJson(Map<String, dynamic> json) {
+  ReclassifyModel.fromJson(Map<String, dynamic> json) {
     if (json['result'] != null) {
-      result = <CategoryItemModel>[];
+      result = <ReclassifyItemModel>[];
       json['result'].forEach((v) {
-        result?.add(CategoryItemModel.fromJson(v));
+        result?.add(ReclassifyItemModel.fromJson(v));
       });
     }
   }
@@ -23,34 +23,37 @@ class CategoryModel {
   }
 }
 
-class CategoryItemModel {
+class ReclassifyItemModel {
   String? sId;
   String? title;
   num? status;
   String? pic;
   String? pid;
-  num? sort;
+  Object? sort;
+  num? isBest;
   num? goProduct;
   String? productId;
 
-  CategoryItemModel({
+  ReclassifyItemModel({
     this.sId,
     this.title,
     this.status,
     this.pic,
     this.pid,
     this.sort,
+    this.isBest,
     this.goProduct,
     this.productId,
   });
 
-  CategoryItemModel.fromJson(Map<String, dynamic> json) {
+  ReclassifyItemModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     title = json['title'];
     status = json['status'] as num?;
     pic = json['pic'];
     pid = json['pid'];
-    sort = json['sort'] as num?;
+    sort = json['sort'] as Object?;
+    isBest = json['is_best'] as num?;
     goProduct = json['go_product'] as num?;
     productId = json['product_id'];
   }
@@ -63,6 +66,7 @@ class CategoryItemModel {
     data['pic'] = pic;
     data['pid'] = pid;
     data['sort'] = sort;
+    data['is_best'] = isBest;
     data['go_product'] = goProduct;
     data['product_id'] = productId;
     return data;
