@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:xm_shop/app/modules/category/controllers/category_controller.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 
+import '../../../../routes/app_pages.dart';
+
 class CategoryBody extends GetView<CategoryController> {
   const CategoryBody({super.key});
 
@@ -77,18 +79,25 @@ class CategoryBody extends GetView<CategoryController> {
             itemCount: controller.reclassifyList.length,
             itemBuilder: (context, index) {
               var item = controller.reclassifyList[index];
-              return Container(
-                alignment: Alignment.center,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Image.network(item.pic!, fit: BoxFit.fitHeight),
-                    SizedBox(height: ScreenAdapter.height(20)),
-                    Text(
-                      item.title!,
-                      style: TextStyle(fontSize: ScreenAdapter.fontSize(34)),
-                    ),
-                  ],
+              return InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.SEARCH, arguments: {
+                    "cid": item.sId,
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      Image.network(item.pic!, fit: BoxFit.fitHeight),
+                      SizedBox(height: ScreenAdapter.height(20)),
+                      Text(
+                        item.title!,
+                        style: TextStyle(fontSize: ScreenAdapter.fontSize(34)),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -100,12 +109,15 @@ class CategoryBody extends GetView<CategoryController> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        _buildCategory(),
-        SizedBox(width: ScreenAdapter.width(20)),
-        _buildReclassify(),
-      ],
+    return Container(
+      color: Colors.white,
+      child: Row(
+        children: [
+          _buildCategory(),
+          SizedBox(width: ScreenAdapter.width(20)),
+          _buildReclassify(),
+        ],
+      ),
     );
   }
 }
