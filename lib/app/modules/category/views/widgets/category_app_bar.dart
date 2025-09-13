@@ -21,7 +21,7 @@ class CategoryAppBar extends StatelessWidget  implements PreferredSizeWidget{
       scrolledUnderElevation:0,
       title: InkWell(
         onTap: () {
-          Get.toNamed(Routes.SEARCH);
+          Get.toNamed(Routes.PRODUCT_LIST);
         },
         child: Container(
           height: ScreenAdapter.height(96),

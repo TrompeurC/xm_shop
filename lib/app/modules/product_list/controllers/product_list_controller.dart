@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:xm_shop/app/models/product_detail_model.dart';
 import 'package:xm_shop/app/utils/request.dart';
 
-class SearchController extends GetxController {
+class ProductListController extends GetxController {
   //TODO: Implement SearchController
   RxList<ProductDetailItemModel> productList = <ProductDetailItemModel>[].obs;
   int page = 1;
@@ -53,7 +53,7 @@ class SearchController extends GetxController {
       "page": page,
       "pageSize": pageSize,
       "sort": sort.value,
-      "search": search,
+      "product_list": search,
       "cid": Get.arguments['cid'] ?? ''
     });
     var data = ProductDetailModel.fromJson(res.data);

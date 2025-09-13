@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide SearchController;
 import 'package:get/get.dart';
-import 'package:xm_shop/app/modules/search/controllers/search_controller.dart';
+import 'package:xm_shop/app/modules/product_list/controllers/product_list_controller.dart';
 import 'package:xm_shop/app/utils/request.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 
 import '../../../../models/product_detail_model.dart';
 
-class SearchProductList extends GetView<SearchController> {
+class SearchProductList extends GetView<ProductListController> {
   const SearchProductList({super.key});
 
   Widget _buildProduct(ProductDetailItemModel product, int index) {

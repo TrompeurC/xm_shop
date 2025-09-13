@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart' hide SearchController;
 import 'package:get/get.dart';
-import 'package:xm_shop/app/modules/search/controllers/search_controller.dart';
+import 'package:xm_shop/app/modules/product_list/controllers/product_list_controller.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 
-class SearchTabs extends GetView<SearchController> {
-  const SearchTabs({super.key});
+class SearchProductTabs extends GetView<ProductListController> {
+  const SearchProductTabs({super.key});
 
   @override
   Widget build(BuildContext context) {

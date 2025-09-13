@@ -23,6 +23,7 @@ class SearchAppBar extends GetView<SearchController> implements PreferredSizeWid
         ),
         child:  Row(
           children: [
+            SizedBox(width: 10),
             Icon(Icons.search, color: Colors.grey[400]),
             SizedBox(width: 4),
             Text(

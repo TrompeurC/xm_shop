@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
+import 'package:xm_shop/app/modules/product_list/views/product_list_view.dart';
 
-import '../modules/search/bindings/search_binding.dart';
-import '../modules/search/views/search_view.dart';
+
+import '../modules/product_list/bindings/product_list_binding.dart';
 import '../modules/tabs/bindings/tabs_binding.dart';
 import '../modules/tabs/views/tabs_view.dart';
 
@@ -18,10 +19,11 @@ class AppPages {
       page: () => const TabsView(),
       binding: TabsBinding(),
     ),
+
     GetPage(
-      name: _Paths.SEARCH,
-      page: () => const SearchView(),
-      binding: SearchBinding(),
+      name: _Paths.PRODUCT_LIST,
+      page: () => const ProductListView(),
+      binding: ProductListBinding(),
     ),
   ];
 }

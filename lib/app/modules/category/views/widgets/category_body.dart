@@ -81,7 +81,7 @@ class CategoryBody extends GetView<CategoryController> {
               var item = controller.reclassifyList[index];
               return InkWell(
                 onTap: () {
-                  Get.toNamed(Routes.SEARCH, arguments: {
+                  Get.toNamed(Routes.PRODUCT_LIST, arguments: {
                     "cid": item.sId,
                   });
                 },

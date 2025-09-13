@@ -27,7 +27,7 @@ class HomeAppBar extends GetView<HomeController> {
             ? ScreenAdapter.width(140)
             : ScreenAdapter.width(40),
         title: InkWell(
-          onTap: () => Get.toNamed("search"),
+          onTap: () => Get.toNamed("product_list"),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             height: ScreenAdapter.height(96),

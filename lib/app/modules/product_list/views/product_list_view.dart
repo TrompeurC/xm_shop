@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart' hide SearchController;
 
 import 'package:get/get.dart';
-import 'package:xm_shop/app/modules/search/views/widgets/search_app_bar.dart';
-import 'package:xm_shop/app/modules/search/views/widgets/search_product_list.dart';
-import 'package:xm_shop/app/modules/search/views/widgets/search_tabs.dart';
+import 'package:xm_shop/app/modules/product_list/views/widgets/search_product_app_bar.dart';
+import 'package:xm_shop/app/modules/product_list/views/widgets/search_product_list.dart';
+import 'package:xm_shop/app/modules/product_list/views/widgets/search_product_tabs.dart';
 
-import '../controllers/search_controller.dart';
+import '../controllers/product_list_controller.dart';
 
-class SearchView extends GetView<SearchController> {
-  const SearchView({super.key});
+class ProductListView extends GetView<ProductListController> {
+  const ProductListView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class SearchView extends GetView<SearchController> {
             bottom: 0,
             child: SearchProductList(),
           ),
-          Positioned(top: 0, left: 0, right: 0, child: SearchTabs()),
+          Positioned(top: 0, left: 0, right: 0, child: SearchProductTabs()),
         ],
       ),
     );
