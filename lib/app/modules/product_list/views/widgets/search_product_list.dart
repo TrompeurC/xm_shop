@@ -97,7 +97,7 @@ class SearchProductList extends GetView<ProductListController> {
             controller: controller.scrollController,
             itemBuilder: (context, index) {
               var item = controller.productList[index];
-              return Column(
+              return Obx(() => Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -111,27 +111,14 @@ class SearchProductList extends GetView<ProductListController> {
                       child: _buildProduct(item, index),
                     ),
                   ),
-                  Obx(() {
-                    var hasMore = controller.hasMore.value;
-                    return (hasMore && index != controller.productList.length)
-                        ? SizedBox()
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              hasMore
-                                  ? SizedBox(
-                                      width: 20,
-                                      height: 20,
-                                      child: CircularProgressIndicator(),
-                                    )
-                                  : SizedBox(),
-                              SizedBox(width: 10),
-                              hasMore ? Text('加载中') : Text('没有更多了'),
-                            ],
-                          );
-                  }),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: (!controller.hasMore.value && index == controller.productList.length)
+                        ? Text('没有数据了')
+                        : (index != controller.productList.length && !controller.hasMore.value) ? SizedBox() : CupertinoActivityIndicator(),
+                  ),
                 ],
-              );
+              ));
             },
           ),
         ),

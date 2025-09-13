@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:xm_shop/app/modules/home/controllers/home_controller.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 
+import '../../../../routes/app_pages.dart';
 import '../../../../utils/icon_font.dart';
 
 class HomeAppBar extends GetView<HomeController> {
@@ -27,7 +28,7 @@ class HomeAppBar extends GetView<HomeController> {
             ? ScreenAdapter.width(140)
             : ScreenAdapter.width(40),
         title: InkWell(
-          onTap: () => Get.toNamed("product_list"),
+          onTap: () => Get.toNamed(Routes.SEARCH),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             height: ScreenAdapter.height(96),

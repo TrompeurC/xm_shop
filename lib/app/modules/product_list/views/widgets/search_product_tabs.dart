@@ -18,7 +18,7 @@ class SearchProductTabs extends GetView<ProductListController> {
           ],
         );
       }
-      return SizedBox();
+      return  Icon(sort.value.contains("-1") ? Icons.arrow_drop_down : Icons.arrow_drop_up);
     }
 
     return Obx(

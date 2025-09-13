@@ -19,6 +19,7 @@ class TabsView extends GetView<TabsController> {
 
         bottomNavigationBar: BottomNavigationBar(
             type:BottomNavigationBarType.fixed ,
+            backgroundColor: Colors.white,
             fixedColor: Colors.red,
             currentIndex: controller.currentIndex.value,
             onTap: (index) {

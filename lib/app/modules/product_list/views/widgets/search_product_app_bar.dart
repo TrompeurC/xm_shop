@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xm_shop/app/routes/app_pages.dart';
 
 import '../../../../utils/screen_adapter.dart';
 
@@ -14,23 +15,26 @@ class SearchAppBar extends GetView<SearchController> implements PreferredSizeWid
       leadingWidth: 40,
       scrolledUnderElevation: 0,
       backgroundColor: Colors.white,
-      title: Container(
-        width: ScreenAdapter.width(1000),
-        height: ScreenAdapter.height(96),
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(246, 246, 246, 1),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child:  Row(
-          children: [
-            SizedBox(width: 10),
-            Icon(Icons.search, color: Colors.grey[400]),
-            SizedBox(width: 4),
-            Text(
-              '搜索商品',
-              style: TextStyle(color: Colors.grey[400], fontSize: 16),
-            ),
-          ],
+      title: InkWell(
+        onTap: () => Get.offAndToNamed(Routes.SEARCH),
+        child: Container(
+          width: ScreenAdapter.width(1000),
+          height: ScreenAdapter.height(96),
+          decoration: BoxDecoration(
+            color: const Color.fromRGBO(246, 246, 246, 1),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child:  Row(
+            children: [
+              SizedBox(width: 10),
+              Icon(Icons.search, color: Colors.grey[400]),
+              SizedBox(width: 4),
+              Text(
+                 Get.arguments['search'] ??  '搜索商品',
+                style: TextStyle(color: Colors.grey[400], fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );

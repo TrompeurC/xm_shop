@@ -41,7 +41,8 @@ class ProductListController extends GetxController {
     }
     currentTabIndex.value = index;
     page = 1;
-    productList.value = [];
+    hasMore.value = true;
+    productList.clear();
     getProductList();
   }
 
@@ -53,8 +54,9 @@ class ProductListController extends GetxController {
       "page": page,
       "pageSize": pageSize,
       "sort": sort.value,
-      "product_list": search,
-      "cid": Get.arguments['cid'] ?? ''
+      // "product_list": search,
+      "cid": Get.arguments['cid'] ?? '',
+      "search": Get.arguments['search'] ?? "",
     });
     var data = ProductDetailModel.fromJson(res.data);
     productList.addAll(data.result!);
