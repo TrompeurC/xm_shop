@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:get/get.dart';
-import 'package:xm_shop/app/modules/give/views/give_view.dart';
 import 'package:xm_shop/app/modules/home/controllers/home_controller.dart';
 import 'package:xm_shop/app/utils/screen_adapter.dart';
 

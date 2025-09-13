@@ -93,32 +93,36 @@ class SearchProductList extends GetView<ProductListController> {
           () => ListView.separated(
             separatorBuilder: (context, index) =>
                 SizedBox(height: ScreenAdapter.height(20)),
-            itemCount: controller.productList.length,
+            itemCount: controller.productList.length + 1, // 增加一个项目用于显示加载指示器
             controller: controller.scrollController,
             itemBuilder: (context, index) {
+              // 如果是最后一个项目，显示加载指示器或"没有数据了"
+              if (index == controller.productList.length) {
+                return Obx(
+                  () => Padding(
+                    padding: EdgeInsets.only(top: 10, bottom: 20),
+                    child: Center(
+                      child: !controller.hasMore.value
+                          ? Text('没有数据了', style: TextStyle(color: Colors.grey))
+                          : CupertinoActivityIndicator(),
+                    ),
+                  ),
+                );
+              }
+
               var item = controller.productList[index];
-              return Obx(() => Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: ScreenAdapter.width(20),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: _buildProduct(item, index),
-                    ),
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: ScreenAdapter.width(20),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: (!controller.hasMore.value && index == controller.productList.length)
-                        ? Text('没有数据了')
-                        : (index != controller.productList.length && !controller.hasMore.value) ? SizedBox() : CupertinoActivityIndicator(),
-                  ),
-                ],
-              ));
+                  child: _buildProduct(item, index),
+                ),
+              );
             },
           ),
         ),
