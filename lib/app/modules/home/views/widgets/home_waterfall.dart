@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:xm_shop/app/modules/home/controllers/home_controller.dart';
+import 'package:xm_shop/app/routes/app_pages.dart';
 
 import '../../../../utils/screen_adapter.dart';
 
@@ -52,55 +53,62 @@ class HomeWaterfall extends GetView<HomeController> {
           itemCount: controller.waterfallProductList.length,
           itemBuilder: (context, index) {
             var item = controller.waterfallProductList[index];
-            return Container(
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(246, 246, 246, 1),
-                borderRadius: BorderRadius.circular(ScreenAdapter.width(20)),
-              ),
-              child: Column(
-                children: [
-                  Image.network(item.pic!, fit: BoxFit.cover),
-                  Padding(
-                    padding: EdgeInsets.all(ScreenAdapter.width(30)),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            item.title!,
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: ScreenAdapter.fontSize(46),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        if (item.subTitle != "")
+            return InkWell(
+              onTap: () {
+                Get.toNamed(Routes.PRODUCT_DETAIL, arguments: {
+                  "id": item.cid,
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(246, 246, 246, 1),
+                  borderRadius: BorderRadius.circular(ScreenAdapter.width(20)),
+                ),
+                child: Column(
+                  children: [
+                    Image.network(item.pic!, fit: BoxFit.cover),
+                    Padding(
+                      padding: EdgeInsets.all(ScreenAdapter.width(30)),
+                      child: Column(
+                        children: [
                           SizedBox(
                             width: double.infinity,
                             child: Text(
-                              item.subTitle!,
+                              item.title!,
                               style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: ScreenAdapter.fontSize(32),
+                                color: Colors.black87,
+                                fontSize: ScreenAdapter.fontSize(46),
                               ),
                             ),
                           ),
-                        if (item.subTitle != "") SizedBox(height: 10),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            "¥${item.price!}",
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: ScreenAdapter.fontSize(38),
+                          SizedBox(height: 10),
+                          if (item.subTitle != "")
+                            SizedBox(
+                              width: double.infinity,
+                              child: Text(
+                                item.subTitle!,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: ScreenAdapter.fontSize(32),
+                                ),
+                              ),
+                            ),
+                          if (item.subTitle != "") SizedBox(height: 10),
+                          SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              "¥${item.price!}",
+                              style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: ScreenAdapter.fontSize(38),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
